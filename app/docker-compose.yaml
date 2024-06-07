@@ -7,6 +7,6 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "8091:80"
+      - "80:80"
     depends_on:
       - app
