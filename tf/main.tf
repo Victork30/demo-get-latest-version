@@ -62,21 +62,6 @@ resource "aws_route_table_association" "tf_rta" {
   route_table_id = aws_route_table.tf_rt.id
 }
 
-# Allocate Elastic IP address
-resource "aws_eip" "tf_eip" {
-  network_interface = aws_network_interface.tf_nif.id
-
-  depends_on = [
-    aws_internet_gateway.tf_igw,
-    aws_instance.tf_server
-  ]
-
-  tags = {
-    Name = "server"
-    Username = "victor.shvartsman"
-  }
-}
-
 # Security
 # This is the group you need to edit if you want to allow ssh connctios to the server: just add an additional ingress with port 22 and your public IP
 resource "aws_security_group" "tf_sg" {
