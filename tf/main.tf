@@ -93,6 +93,7 @@ resource "aws_security_group" "tf_sg" {
 # Create network interface at public subnet
 resource "aws_network_interface" "tf_nif" {
   subnet_id       = aws_subnet.tf_subnet.id
+  security_groups = [aws_security_group.tf_sg.id]
 }
 
 # Allocate Elastic IP address to the network interface
