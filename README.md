@@ -5,6 +5,7 @@ This is an exercise project. This project represents a small Python application 
 Project Structure:
 * tf - folder contains terraform infrastructure for the project. To install run
 ```
+cd tf
 terraform apply
 ```
 * app - folder contains the application itself and some additional components needed to run the application: a bash script "run.sh" to install Docker and docker-compose.yaml to run the project in the Docker environment. 
