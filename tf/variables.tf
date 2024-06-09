@@ -1,7 +1,7 @@
 variable "profile_name" {
   description = "AWS profile name"
   type	      = string
-  default     = "default"
+  default     = "your_company_name"
 }
 
 variable "path_file_credentials" {
