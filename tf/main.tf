@@ -63,7 +63,7 @@ resource "aws_route_table_association" "tf_rta" {
 }
 
 # Security
-# This is the group you need to edit if you want to allow ssh connctios to the server: just add an additional ingress with port 22 and your public IP
+# This is the group you need to edit if you want to allow ssh connctios to the server: just add an additional ingress with port 22 and your public IP. Also, ssh key name should be provided in aws_instance section
 resource "aws_security_group" "tf_sg" {
   vpc_id      = aws_vpc.tf_vpc.id
   description = "Access to the application server"
@@ -121,10 +121,10 @@ data "aws_ami" "latest_ubuntu" {
 }
 
 # Create an ec2 instance with network interface and public IP address associated
+# In order to allow ssh connections, key_name should be provided
 resource "aws_instance" "tf_server" {
   ami           = data.aws_ami.latest_ubuntu.id
   instance_type = "t2.micro"
-  key_name      = "AWS-Victor"
   network_interface {
     device_index         = 0
     network_interface_id = aws_network_interface.tf_nif.id
